@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "ffmix-cli",
+      "hasCanvas": true,
+      "bodyTextLen": 1004,
+      "bodyTextHash": "e7c4a602a2eaf490313091c3eaf80b28f7c0f17f0ef1360c0ba734e3799ecb84",
+      "bodyTextPrefix": "ffmix-cli Night Desk · EP 014 1080p50 / 00:00:00:11 REC STRM Rev",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "ffmix-cli",
+      "hasCanvas": true,
+      "bodyTextLen": 222,
+      "bodyTextHash": "024a6bdf0daa43c076a06e503cbec66e87c7e4c1f549855390b4ab2feb926892",
+      "bodyTextPrefix": "ffmix Mix Tal CLI PVW CAM 2 TAP TAKE PGM CAM 1 CUT AUTO Fade Wip",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

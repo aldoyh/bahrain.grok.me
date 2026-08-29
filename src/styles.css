@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #08090b;
+  --color-surface: #111418;
+  --color-elevated: #181c21;
+  --color-fg: #eceff3;
+  --color-muted: #8b939c;
+  --color-subtle: #5c656e;
+  --color-border: #23282e;
+  --color-accent: #c8ced6;
+  --color-program: #e23b3b;
+  --color-preview: #2fd67a;
+  --color-tui: #e8c547;
+  --color-info: #5ec8d8;
+  --color-ok: #3dd68c;
+  --color-warn: #d9a441;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --shadow-border-hover: 0 0 0 1px rgba(255, 255, 255, 0.13);
+  --ease-out-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100dvh;
+    min-height: 100svh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  textarea {
+    caret-color: var(--color-tui);
+    font-size: 16px;
+  }
+
+  @media (min-width: 640px) {
+    input,
+    textarea {
+      font-size: inherit;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.fader [data-orientation="vertical"] {
+  height: 7.5rem;
+}
+
+@media (max-width: 767px) {
+  .fader [data-orientation="vertical"] {
+    height: 6.5rem;
+  }
+}
+
+input[type="range"].mix-range {
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  min-width: 5.5rem;
+}
+
+input[type="range"].mix-range::-webkit-slider-runnable-track {
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 99px;
+}
+
+input[type="range"].mix-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7.5px;
+  border-radius: 99px;
+  background: var(--color-accent);
+  box-shadow: var(--shadow-border);
+}
+
+.tui-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.tui-scroll::-webkit-scrollbar-thumb {
+  background: #2a3036;
+  border-radius: 99px;
+}
+
+.chip-row {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chip-row::-webkit-scrollbar {
+  display: none;
+}
+
+.mixer-rail {
+  width: 3.5rem;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.take-bar button {
+  min-height: 3rem;
+}
+
+.sheet-handle {
+  width: 2.5rem;
+  height: 0.25rem;
+  border-radius: 99px;
+  background: var(--color-border);
+}
+
+@media (max-width: 1023px) {
+  .mixer-app {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  .mixer-desk {
+    overscroll-behavior: contain;
+  }
+
+  input[type="range"].mix-range {
+    min-width: 0;
+  }
+
+  input[type="range"].mix-range::-webkit-slider-thumb {
+    width: 22px;
+    height: 22px;
+    margin-top: -9.5px;
+  }
+}
+
+@media (max-height: 540px) and (orientation: landscape) {
+  .mixer-app {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .mixer-main {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .mixer-stage {
+    width: min(48%, 22rem);
+    flex: 0 0 auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .mixer-monitors {
+    flex: 1 1 0;
+    min-height: 0;
+    container-type: size;
+  }
+
+  .mixer-monitors .aspect-video {
+    width: min(100%, calc(100cqh * 16 / 9));
+    max-height: 100%;
+    margin-inline: auto;
+  }
+
+  .mixer-desk {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .take-bar button {
+    min-height: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .mixer-rail {
+    width: 3.25rem;
+  }
+
+  .mixer-rail button {
+    min-height: 0;
+  }
+}

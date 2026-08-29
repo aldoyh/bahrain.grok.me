@@ -1,0 +1,6 @@
+{
+  "title": "ffmix-cli",
+  "type": "x:game",
+  "card": "custom",
+  "description": "Live production from the command line"
+}
